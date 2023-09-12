@@ -48,6 +48,8 @@ class ListNode {
     { value: 2 },
     { value: 3 },
   ];
-  
+   
+
+
   const linkedList = jsonToLinkedList(json);
   console.log(linkedList);  // ListNode { value: 1, next: ListNode { value: 2, next: ListNode { value: 3, next: null } } }
