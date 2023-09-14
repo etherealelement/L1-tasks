@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/reset.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=52329b89-2d2d-4c57-9a18-0f748c9a97c8&lang=ru_RU"
+            type="text/javascript">
+    </script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1" />
     <link rel="stylesheet" href="./styles/style.css">
     <title>Document</title>
 </head>
 <body>
-    <header class="header">
-        <div class="header__inner">
-            
+    <section class="geo">
+        <div class="container">
+            <div class="geo__inner">
+                <h2 class="geo__title">Задание 17:</h2>
+                <p class="geo__text">Необходимо реализовать простое поле ввода адреса с функцией геокодинга: пользователь вводит данные в поле с помощью одного из геоинформационных сервисов (Яндекс.Карты, ДаДата, GraphHopper), подбирается адрес. Найденные данные должны отображаться в выпадающем списке, из которого можно выбрать подходящее значение.</p>
+                <label class="geo__label">
+                    <input type="text" id="suggest" class="geo__input" placeholder="Введите запрос...">
+                </label>
+            </div>
         </div>
-    </header>
+    </section>
     
-    <script src="./tasks/1-palindrome/task.js"></script>
+    <script src="tasks/17-geocoding/geo-script.js"></script>
 </body>
 </html>
