@@ -18,7 +18,5 @@ const debounce = (fn, ms) => {
         // Вызываем setTimeout и передаем туда функцию и колл-во задержки
         timeout = setTimeout(fnCall,ms);
     };
-
-
 }
 ymaps.ready(debounce(init,200));
