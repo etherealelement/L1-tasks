@@ -32,3 +32,41 @@ body {
 	padding: 20px;
 	margin-top: 20px;
 }
+
+/* widget */
+.widget {
+	margin-top: 50px;
+}
+
+.widget__title {
+	font-size: 25px;
+	margin-bottom: 20px;
+	font-weight: 700;
+	color: blueviolet;
+}
+
+.widget__box{
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 700px;
+	height: 400px;
+	overflow: scroll;
+
+}
+.widget__box li{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 30px;
+}
+
+.widget__image {
+	width: 400px;
+	height: 300px;
+}
+
+.widget__item{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

@@ -10,23 +10,55 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=52329b89-2d2d-4c57-9a18-0f748c9a97c8&lang=ru_RU"
             type="text/javascript">
     </script>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1"/>
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://vk.com/js/api/openapi.js?169" type="text/javascript"></script>
     <title>Document</title>
 </head>
 <body>
-    <section class="geo">
-        <div class="container">
-            <div class="geo__inner">
-                <h2 class="geo__title">Задание 17:</h2>
-                <p class="geo__text">Необходимо реализовать простое поле ввода адреса с функцией геокодинга: пользователь вводит данные в поле с помощью одного из геоинформационных сервисов (Яндекс.Карты, ДаДата, GraphHopper), подбирается адрес. Найденные данные должны отображаться в выпадающем списке, из которого можно выбрать подходящее значение.</p>
-                <label class="geo__label">
-                    <input type="text" id="suggest" class="geo__input" placeholder="Введите запрос...">
-                </label>
+<!-- geocoding  -->
+<section class="geo">
+    <div class="container">
+        <div class="geo__inner">
+            <h2 class="geo__title">Задание 17:</h2>
+            <p class="geo__text">Необходимо реализовать простое поле ввода адреса с функцией геокодинга: пользователь
+                вводит данные в поле с помощью одного из геоинформационных сервисов (Яндекс.Карты, ДаДата, GraphHopper),
+                подбирается адрес. Найденные данные должны отображаться в выпадающем списке, из которого можно выбрать
+                подходящее значение.</p>
+            <label class="geo__label">
+                <input type="text" id="suggest" class="geo__input" placeholder="Введите запрос...">
+            </label>
+        </div>
+    </div>
+</section>
+<!--  vk widget  -->
+<section class="widget">
+    <div class="container">
+        <div class="widget__inner">
+            <h2 class="widget__title">Задание 19:</h2>
+            <p class="widget__text">
+                Реализовать виджет, отображающий список постов из любого паблика в VK (подойдет любой паблик, где постов
+                очень много). Виджет должен иметь фиксированные размеры и возможность прокрутки. При прокрутке
+                содержимого виджета до конца должны подгружаться новые посты. Необходимо реализовать возможность
+                кэширования уже загруженных данных: если пользователь закрыл страницу, а потом снова открыл ее, виджет
+                должен отображать все загруженные ранее данные (новые данные должны подгружаться из учетом уже
+                загруженных ранее).
+                При переполнении localStorage, данные, загруженные последними должны вытеснять данные загруженные
+                первыми.
+            </p>
+            <div class="widget__container">
+                <ul id="widget" class="widget__box"></ul>
             </div>
         </div>
-    </section>
-    <script src="tasks/18-maxLocalStorage/max-storage.js"></script>
-    <script src="tasks/17-geocoding/geo-script.js"></script>
+    </div>
+</section>
+
+<script src="tasks/17-geocoding/geo-script.js"></script>
+<script type="text/javascript">
+    VK.init({
+        apiId: 51750052
+    });
+</script>
+<script src="tasks/19-VkWidget/vkapi.js"></script>
 </body>
 </html>
