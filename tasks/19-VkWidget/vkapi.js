@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Загружаем данные 
     const loadData = async (count, pubId) => {
-        const res = await fetch(`https://api.vk.com/method/wall.get?owner_id=-${pubId}&count=${count}&v=5.131&access_token=vk1.a.vgiOgvutPJPs3BasfIcm_IlWPk0jLa-7ncgQ_bQ-36ksKlhMU-07fGlBgC6J0hfrA33B_nvR96jVCd5kpHa3SxuhZ54B07569ShIMBt-bDMq_MfwnUhtwMdhOwtuSA01VvC4Oac5qYwE7fAN5-lSLwLf64tWXuAz4ggsUxeF8pH-XOw7cZBJAl0aLAaNOxzBAMrVSZ4vhJA83i9ylQQlqQ`);
+        const res = await fetch(`https://api.vk.com/method/wall.get?owner_id=-${pubId}&count=${count}&v=5.131&access_token=vk1.a.WMZHqkxwldhjr62u_xn1nvubZ0sZc20Vb0APQ4gufkKpWrAXA6t12OxW3ufS8whyVgu0nCY95pyqYgwthsZkYtaLbO8YLJXdTHHkgtWcWj1yvdToNi_heK0gnkdaM1A5yMTdVACah9AdUCFUfqCUbjTGjaIiGfWHAJb5ndNnF-6S1DnpFCtmZ0DEfYMUj6p6BbD_nJ92C2uJv1L_9esrag&expires_in=86400&user_id=213386040`);
         const data = await res.json()
         return data;
     }
@@ -16,7 +16,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     loadData(count, pubId).then(item => {
         // получаем посты
-        const posts = item.response.items;
+        const posts = item.response.items
+        console.log(posts)
         for (const post of posts) {
             const postEl = document.createElement("li");
             postEl.classList.add("widget__item");
