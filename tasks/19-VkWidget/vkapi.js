@@ -2,7 +2,7 @@
 window.addEventListener("DOMContentLoaded", () => {
     const widget = document.getElementById("widget");
     const pubId = 210215065;
-    let count = 50;
+    let count = 150;
 
     // Загружаем данные 
     const loadData = async (count, pubId) => {
@@ -16,8 +16,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
     loadData(count, pubId).then(item => {
         // получаем посты
-        const posts = item.response.items
-        console.log(posts)
+        // сразу их кэшируем
+        const newPosts = item.response.items;
+
+        let postArray = [];
+        for (let i = 0; i < newPosts.length; i++) {
+            localStorage.setItem(`post${i}`, JSON.stringify(newPosts[i]))
+            postArray.push(JSON.parse(localStorage.getItem(`post${i}`)))
+        }
+        
+        const posts = postArray;
         for (const post of posts) {
             const postEl = document.createElement("li");
             postEl.classList.add("widget__item");
@@ -43,11 +51,6 @@ window.addEventListener("DOMContentLoaded", () => {
                 count++;
             }
         })
-        
-    // кэширование данных
-        const newPosts = item.response.items;
-        console.log(newPosts)
-        
     })
 
 
