@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     loadData(count, pubId).then(item => {
         // получаем посты
-        const posts = item.response.items
+        const posts = item.response.items;
         for (const post of posts) {
             const postEl = document.createElement("li");
             postEl.classList.add("widget__item");
@@ -35,13 +35,20 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
             }
         }
+        // реализация бесконечного скролла
         widget.addEventListener("scroll", () => {
             const documentRect = widget.getBoundingClientRect();
             if (widget.scrollTop === 14917) {
                 count++;
             }
         })
+        
+    // кэширование данных
+        const newPosts = item.response.items;
+        console.log(newPosts)
+        
     })
+
 
 
 })
