@@ -70,3 +70,24 @@ body {
 	align-items: center;
 	justify-content: center;
 }
+
+.analyser__label {
+	margin-top: 20px;
+}
+
+
+
+#password-strength {
+	font-size: 12px;
+	color: red;
+	margin-top: 10px;
+}
+
+#password {
+	width: 300px;
+	border-radius: 13px;
+	border: 1px solid grey;
+	height: 40px;
+	padding: 20px;
+	margin-top: 20px;
+}
