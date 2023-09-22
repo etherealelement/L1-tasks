@@ -65,8 +65,12 @@
                     Выведите пользователю оценку сложности пароля и предложите улучшения, если пароль слишком слабый.
                 </p>
                 <label class="analyser__label">
-                    <input type="password" id="password" placeholder="Введите пароль">
+                    <div>
+                        <input type="password" id="password" placeholder="Введите пароль">
+                        <input type="submit" id="submit" />
+                    </div>
                     <div id="password-strength"></div>
+                    <div id="password-info"></div>
                 </label>
             </div>
         </div>
