@@ -108,18 +108,22 @@ body {
 
 .table__block{
 	margin-top: 30px;
-	border: 1px solid black;
+	display: flex;
+	justify-content: center;
 }
 
 .table__head {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	border-bottom: 1px solid black;
 }
 
 .table__head-item{
 	border-right: 1px solid black;
+	border-bottom: 1px solid black;
 	padding: 20px 20px;
+	width: 90px;
 	text-align: center;
 }
 .table__head-item:last-child {
@@ -138,4 +142,192 @@ body {
 	bottom: -20px; /* Положение треугольника */
 	border: 10px solid transparent; /* Прозрачные границы */
 	border-top: 10px solid black; /* Добавляем треугольник */
+}
+
+.table__content {
+	display: flex;
+	align-items: center;
+}
+
+.table__count {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.table__count-item {
+	text-align: center;
+	width: 90px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 5px 5px;
+}
+
+.head-item {
+	text-align: center;
+	width: 96px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 20px 20px;
+}
+
+.surname-item {
+	text-align: center;
+	width: 116px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 20px 20px;
+}
+
+
+.phone-item {
+	text-align: center;
+	width: 177px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 20px 20px;
+}
+
+.address-item {
+	text-align: center;
+	width: 177px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 20px 20px;
+}
+
+
+.table__name {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.table__content-item{
+	text-align: center;
+	width: 96px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 5px 5px;
+}
+
+
+
+
+.table__head-item:nth-child(4){
+	width: 170px;
+}
+
+
+
+.table__surname{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.table__surname-item {
+	text-align: center;
+	width: 116px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 5px 5px;
+}
+
+.table__phone {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.table__phone-item {
+	text-align: center;
+	width: 177px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 5px 5px;
+}
+
+.table__address{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.table__address-item {
+	text-align: center;
+	width: 177px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 5px 5px;
+}
+
+.table__country {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.table__country-item{
+	text-align: center;
+	width: 125px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 5px 5px;
+}
+
+.country-item {
+	text-align: center;
+	width: 125px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 20px 20px;
+}
+
+.table__state {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.table__state-item {
+	text-align: center;
+	width: 100px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 5px 5px;
+}
+
+.state-item{
+	text-align: center;
+	width: 100px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 20px 5px;
+}
+
+.table__index {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.table__index-item{
+	text-align: center;
+	width: 100px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 5px 5px;
+}
+
+.index-item{
+	text-align: center;
+	width: 100px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	padding: 20px 5px;
+}
+
+.table__filter {
+	cursor: pointer;
 }
