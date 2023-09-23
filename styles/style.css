@@ -109,6 +109,7 @@ body {
 .table__block{
 	margin-top: 30px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 }
 
@@ -270,7 +271,7 @@ body {
 
 .table__country-item{
 	text-align: center;
-	width: 125px;
+	width: 250px;
 	border-bottom: 1px solid black;
 	border-right: 1px solid black;
 	padding: 5px 5px;
@@ -278,7 +279,7 @@ body {
 
 .country-item {
 	text-align: center;
-	width: 125px;
+	width: 250px;
 	border-bottom: 1px solid black;
 	border-right: 1px solid black;
 	padding: 20px 20px;
@@ -330,4 +331,28 @@ body {
 
 .table__filter {
 	cursor: pointer;
+}
+
+.table__pagination {
+	margin-top: 30px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.table__pagination-item {
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 30px;
+	border: 1px solid purple;
+	border-radius: 50%;
+	transition: all .3s;
+}
+
+.table__pagination-item:hover {
+	background: purple;
+	color: #fff;
 }
