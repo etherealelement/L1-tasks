@@ -54,27 +54,85 @@
 </section>
 
 <!-- password analyzer -->
-    <section class="analyser">
-        <div class="container">
-            <div class="analyser__inner">
-                <h2 class="widget__title">Задание 23:</h2>
-                <p class="widget__text">
-                    Анализатор сложности пароля: создайте функцию,
-                    которая оценивает сложность введенного пользователем пароля.
-                    Необходимо анализировать длину пароля, использование различных символов, наличие чисел и букв в разных регистрах.
-                    Выведите пользователю оценку сложности пароля и предложите улучшения, если пароль слишком слабый.
-                </p>
-                <label class="analyser__label">
-                    <div>
-                        <input type="password" id="password" placeholder="Введите пароль">
-                        <input type="submit" id="submit" />
-                    </div>
-                    <div id="password-strength"></div>
-                    <div id="password-info"></div>
-                </label>
-            </div>
+<section class="analyser">
+    <div class="container">
+        <div class="analyser__inner">
+            <h2 class="widget__title">Задание 23:</h2>
+            <p class="widget__text">
+                Анализатор сложности пароля: создайте функцию,
+                которая оценивает сложность введенного пользователем пароля.
+                Необходимо анализировать длину пароля, использование различных символов, наличие чисел и букв в разных
+                регистрах.
+                Выведите пользователю оценку сложности пароля и предложите улучшения, если пароль слишком слабый.
+            </p>
+            <label class="analyser__label">
+                <div>
+                    <input type="password" id="password" placeholder="Введите пароль">
+                    <input type="submit" id="submit"/>
+                </div>
+                <div id="password-strength"></div>
+                <div id="password-info"></div>
+            </label>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- table -->
+
+<section class="table">
+    <div class="container">
+        <div class="table__inner">
+            <h2 class="widget__title">Задание 24:</h2>
+            <p class="widget__text">
+                Разработайте страницу, отображающую таблицу с данными.
+
+                Требования:
+                данные должны загружаться при загрузке страницы
+                необходимо реализовать сортировку по убыванию и по возрастания для всех колонок
+                необходимо реализовать клиентскую пагинацию (50 элементов на странице)
+            </p>
+
+            <div class="table__block">
+                <ul class="table__head">
+                    <li class="table__head-item">
+                        № п\п
+                        <span class="table__filter">
+                    </span>
+                    </li>
+                    <li class="table__head-item">Имя
+                        <span class="table__filter">
+                    </span>
+                    </li>
+                    <li class="table__head-item">Фамилия
+                        <span class="table__filter">
+                    </span></li>
+                    <li class="table__head-item">Телефон
+                        <span class="table__filter">
+                    </span></li>
+                    <li class="table__head-item">Адресс
+                        <span class="table__filter">
+                    </span></li>
+                    <li class="table__head-item">Город
+                        <span class="table__filter">
+                    </span></li>
+                    <li class="table__head-item">Государство
+                        <span class="table__filter">
+                    </span></li>
+                    <li class="table__head-item">Индекс
+                        <span class="table__filter">
+                    </span></li>
+                </ul>
+
+                <ul class="table__content">
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
 <script src="tasks/17-geocoding/geo-script.js"></script>
 <script type="text/javascript">
@@ -87,5 +145,6 @@
 <script src="tasks/21-getMaxStackSize/task.js"></script>
 <!--<script src="tasks/22-maxDocumentWrite/task.js"></script>-->
 <script src="tasks/23-passwordСomplexity/task.js"></script>
+<script src="tasks/24-table/task.js"></script>
 </body>
 </html>

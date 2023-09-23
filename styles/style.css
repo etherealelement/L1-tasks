@@ -103,3 +103,39 @@ body {
 	flex-direction: column;
 	gap: 10px;
 }
+
+/* table */
+
+.table__block{
+	margin-top: 30px;
+	border: 1px solid black;
+}
+
+.table__head {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.table__head-item{
+	border-right: 1px solid black;
+	padding: 20px 20px;
+	text-align: center;
+}
+.table__head-item:last-child {
+	border: none;
+}
+
+.table__filter {
+	position: relative;
+}
+
+.table__filter::after {
+	content: '';
+	top: -12px;
+	position: absolute; /* Абсолютное позиционирование */
+	left: -2px;
+	bottom: -20px; /* Положение треугольника */
+	border: 10px solid transparent; /* Прозрачные границы */
+	border-top: 10px solid black; /* Добавляем треугольник */
+}

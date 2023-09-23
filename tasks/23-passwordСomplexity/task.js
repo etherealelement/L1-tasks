@@ -56,7 +56,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 errors.push("Добавьте спецсимволы цифры")
             } else if (value.match(/[0-9]/)) {
                 rating++;
-                errors.filter(item => item !== "цифры");
+                errors.filter(item => item !== "цифры ");
                 passwordStrange.innerText = "";
             }
 
