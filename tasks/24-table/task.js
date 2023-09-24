@@ -104,9 +104,16 @@ window.addEventListener("DOMContentLoaded", () => {
             paginationItem.classList.add("table__pagination-item")
             paginationItem.innerHTML = `${page}`;
 
+            if (currentPage === page) paginationItem.classList.add("table__pagination--active");
+
             paginationItem.addEventListener("click", () => {
                 currentPage = page;
-                displayTable(postsData,rows,currentPage)
+                displayTable(postsData,rows,currentPage);
+
+                let currentItemLi = document.querySelector("li.table__pagination--active")
+                currentItemLi.classList.remove("table__pagination--active");
+
+                paginationItem.classList.add("table__pagination--active")
             })
 
             return paginationItem;

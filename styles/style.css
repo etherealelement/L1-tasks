@@ -363,3 +363,8 @@ body {
 	align-items: center;
 	margin-bottom: 10px;
 }
+
+.table__pagination--active {
+	background: purple;
+	color: #fff;
+}
