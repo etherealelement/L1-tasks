@@ -206,7 +206,7 @@ body {
 
 .table__content-item{
 	text-align: center;
-	width: 96px;
+	width: 112px;
 	border-bottom: 1px solid black;
 	border-right: 1px solid black;
 	padding: 5px 5px;
@@ -367,4 +367,8 @@ body {
 .table__pagination--active {
 	background: purple;
 	color: #fff;
+}
+
+.table__content-wrap{
+	cursor: pointer;
 }

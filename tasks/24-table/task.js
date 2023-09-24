@@ -10,8 +10,10 @@ window.addEventListener("DOMContentLoaded", () => {
     const tableIndex = document.querySelector(".table__index");
     const tableCount = document.querySelector(".table__count");
     const tableWrapper = document.querySelector(".table__pagination");
+    const filterIcon = [...document.querySelectorAll(".table__content-wrap")];
     // Функция загрузки данных
-    let countPost = 1000;
+
+    let countPost = 500;
     const loadData = async () => {
         // для отлова ошибки воспользуемся try/catch
         try {
@@ -31,18 +33,49 @@ window.addEventListener("DOMContentLoaded", () => {
         let currentPage = 1;
         let rows = 50;
 
+        // Функция сортировки
+            const sortTable = (arrData, value) => {
+                switch (value) {
+                    case "Имя": {
+                        return arrData.sort((a, b) => b.fname - a.fname);
+                    }
+                    case "Фамилия": {
+                        return arrData.sort((a, b) => b.lname - a.lname);
+                    }
+                    case "Телефон": {
+                        return arrData.sort((a, b) => b.tel - a.tel);
+                    }
+                    case "Адресс": {
+                        return arrData.sort((a, b) => b.address - a.address);
+                    }
+                    case "Город": {
+                        return arrData.sort((a, b) => b.city - a.city);
+                    }
+                    case "Штат": {
+                        return arrData.sort((a, b) => b.state - a.state);
+                    }
+                    case "Индекс": {
+                        return arrData.sort((a, b) => b.zip - a.zip);
+                    }
+                    default: {
+                        return arrData;
+                    }
+                }
+            }
+
         // функция для отрисовки данных в таблице
         const displayTable = (arrData, rowPerPage, page) => {
             [...document.querySelectorAll(".table__item")].forEach(item => {
                 item.innerHTML = "";
             })
+
+
             // Создадим переменные для работы slice
             page--;
             const start = rowPerPage * page;
             const end = start + rowPerPage;
             // Выводим 50 элементов
-            const paginatedData = arrData.slice(start, end)
-            console.log(paginatedData)
+            const paginatedData = sortTable(arrData, "Индекс").slice(start, end)
 
             paginatedData.forEach((item, id) => {
                 const userCount = document.createElement("li");
@@ -50,47 +83,49 @@ window.addEventListener("DOMContentLoaded", () => {
                 userCount.innerHTML = `${id + 1}`
                 tableCount.appendChild(userCount)
             })
+
             for (const dataArrElement of paginatedData) {
-        // Выводим имена
-        const userName = document.createElement("li");
-        userName.classList.add("table__content-item");
-        userName.innerHTML = `${dataArrElement.fname}`;
+                // Выводим имена
+                const userName = document.createElement("li");
+                userName.classList.add("table__content-item");
+                userName.innerHTML = `${dataArrElement.fname}`;
                 tableName.appendChild(userName);
-        // Выводим фамилии;
-        const userSurname = document.createElement("li");
-        userSurname.classList.add("table__surname-item");
-        userSurname.innerHTML = `${dataArrElement.lname}`
-        tableSurname.appendChild(userSurname);
-        // Выводим телефон;
-        const userPhone = document.createElement("li");
-        userPhone.classList.add("table__phone-item");
-        userPhone.innerHTML = `${dataArrElement.tel}`;
-        tablePhone.appendChild(userPhone)
-        // Выводим адресс
-        const userAddress = document.createElement("li");
-        userAddress.classList.add("table__address-item");
-        userAddress.innerHTML = `${dataArrElement.address}`;
-        tableAddress.appendChild(userAddress)
-        // Выводим город
-        const userCountry = document.createElement("li");
-        userCountry.classList.add("table__country-item");
-        userCountry.innerHTML = `${dataArrElement.city}`;
-        tableCountry.appendChild(userCountry)
-        // Выводим государство
-        const userState = document.createElement("li");
-        userState.classList.add("table__state-item");
-        userState.innerHTML = `${dataArrElement.state}`;
-        tableState.appendChild(userState)
-        // Выводим индекс
-        const userIndex = document.createElement("li");
-        userIndex.classList.add("table__index-item");
-        userIndex.innerHTML = `${dataArrElement.zip}`;
-        tableIndex.appendChild(userIndex)
-    }
+                // Выводим фамилии;
+                const userSurname = document.createElement("li");
+                userSurname.classList.add("table__surname-item");
+                userSurname.innerHTML = `${dataArrElement.lname}`
+                tableSurname.appendChild(userSurname);
+                // Выводим телефон;
+                const userPhone = document.createElement("li");
+                userPhone.classList.add("table__phone-item");
+                userPhone.innerHTML = `${dataArrElement.tel}`;
+                tablePhone.appendChild(userPhone)
+                // Выводим адресс
+                const userAddress = document.createElement("li");
+                userAddress.classList.add("table__address-item");
+                userAddress.innerHTML = `${dataArrElement.address}`;
+                tableAddress.appendChild(userAddress)
+                // Выводим город
+                const userCountry = document.createElement("li");
+                userCountry.classList.add("table__country-item");
+                userCountry.innerHTML = `${dataArrElement.city}`;
+                tableCountry.appendChild(userCountry)
+                // Выводим государство
+                const userState = document.createElement("li");
+                userState.classList.add("table__state-item");
+                userState.innerHTML = `${dataArrElement.state}`;
+                tableState.appendChild(userState)
+                // Выводим индекс
+                const userIndex = document.createElement("li");
+                userIndex.classList.add("table__index-item");
+                userIndex.innerHTML = `${dataArrElement.zip}`;
+                tableIndex.appendChild(userIndex)
+            }
 
         }
+
         // функция отрисовки  колличества кнопок пагинации
-        function displayPagination  (arrData,  rowPerPage)  {
+        function displayPagination(arrData, rowPerPage) {
             const pagesCount = Math.ceil(arrData.length / rowPerPage);
 
             for (let i = 0; i < pagesCount; i++) {
@@ -98,8 +133,9 @@ window.addEventListener("DOMContentLoaded", () => {
                 tableWrapper.appendChild(liEl);
             }
         }
+
         // функция отрисовки кнопок пагинации
-        function displayPaginationBtn (page) {
+        function displayPaginationBtn(page) {
             const paginationItem = document.createElement("li");
             paginationItem.classList.add("table__pagination-item")
             paginationItem.innerHTML = `${page}`;
@@ -108,7 +144,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             paginationItem.addEventListener("click", () => {
                 currentPage = page;
-                displayTable(postsData,rows,currentPage);
+                displayTable(postsData, rows, currentPage);
 
                 let currentItemLi = document.querySelector("li.table__pagination--active")
                 currentItemLi.classList.remove("table__pagination--active");
@@ -119,7 +155,7 @@ window.addEventListener("DOMContentLoaded", () => {
             return paginationItem;
         }
 
-        displayTable(postsData,rows,currentPage);
+        displayTable(postsData, rows, currentPage);
         displayPagination(postsData, rows)
     }
     render()
