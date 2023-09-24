@@ -1,46 +1,54 @@
 class MathX {
     constructor() {}
-  
+
+    // Метод `fibonacci` генерирует последовательность Фибоначчи длиной `n`.
     static fibonacci(n) {
-      if (n <= 0) {
-        return [];
-      }
-  
-      const seq = [0, 1];
-  
-      for (let i = 2; i < n; i++) {
-        seq.push(seq[i - 1] + seq[i - 2]);
-      }
-  
-      return seq;
+        // Если `n` не положительное число, возвращаем пустой массив.
+        if (n <= 0) {
+            return [];
+        }
+
+        const seq = [0, 1]; // Инициализируем массив с первыми двумя числами последовательности.
+
+        for (let i = 2; i < n; i++) {
+            // Добавляем новое число, равное сумме двух предыдущих, в конец массива.
+            seq.push(seq[i - 1] + seq[i - 2]);
+        }
+
+        return seq; // Возвращаем массив с последовательностью Фибоначчи.
     }
-  
+
+    // Метод `isPrime` проверяет, является ли число простым.
     static isPrime(number) {
-      if (number <= 1) {
-        return false;
-      }
-  
-      for (let i = 2; i <= Math.sqrt(number); i++) {
-        if (number % i === 0) {
-          return false;
+        // Если число меньше или равно 1, оно не является простым.
+        if (number <= 1) {
+            return false;
         }
-      }
-  
-      return true;
+
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            // Проверяем, делится ли число нацело на какое-либо число из диапазона [2, корень из числа].
+            if (number % i === 0) {
+                return false; // Если делится, число не простое.
+            }
+        }
+
+        return true; // Если не найдено делителей, число простое.
     }
-  
+
+    // Метод `getPrimeNumbers` возвращает первые `n` простых чисел.
     static getPrimeNumbers(n) {
-      const primes = [];
-      let number = 2;
-  
-      while (primes.length < n) {
-        if (MathX.isPrime(number)) {
-          primes.push(number);
+        const primes = [];
+        let number = 2; // Начинаем проверку с числа 2, первого простого числа.
+
+        while (primes.length < n) {
+            // Пока не набрано нужное количество простых чисел:
+            if (MathX.isPrime(number)) {
+                primes.push(number); // Если число простое, добавляем его в массив простых чисел.
+            }
+
+            number++; // Переходим к следующему числу.
         }
-  
-        number++;
-      }
-  
-      return primes;
+
+        return primes; // Возвращаем массив с первыми `n` простыми числами.
     }
-  }
+}

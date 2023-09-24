@@ -17,6 +17,7 @@ const JsonToString  = (json) => {
             res.push(`"${key}": ${Number(value)},`)
         } else {res.push(`"${key}": "${value}",`)}
     }
+    // возвращаем готовую строку
     return `{${res.join("").split("").slice(0,-1).join("")}}`
 }
 

@@ -372,3 +372,11 @@ body {
 .table__content-wrap{
 	cursor: pointer;
 }
+.form__input{
+	width: 300px;
+	border-radius: 13px;
+	border: 1px solid grey;
+	height: 40px;
+	padding: 20px;
+	margin-top: 20px;
+}

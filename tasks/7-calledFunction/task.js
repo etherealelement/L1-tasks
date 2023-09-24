@@ -6,7 +6,7 @@ const functions = [
 
 // 1 способ, через цикл 
 const calledFunctionWithLoop = (arr) => {
-
+    // перебираем каждую функцию и вызываем ее
     for (let i = 0; i < arr.length; i++) {    
         arr[i]()
     }
