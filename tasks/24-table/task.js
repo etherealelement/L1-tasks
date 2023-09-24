@@ -11,9 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const tableCount = document.querySelector(".table__count");
     const tableWrapper = document.querySelector(".table__pagination");
     // Функция загрузки данных
-
-
-    let countPost = 20;
+    let countPost = 1000;
     const loadData = async () => {
         // для отлова ошибки воспользуемся try/catch
         try {
@@ -27,76 +25,100 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Функция отображения пагинация;
-    const displayPagination = async () => {
-        const paginationWrapper = document.querySelector(".table__pagination");
-        const totalData = await loadData();
+    // создадим функцию для рендера
+    const render = async () => {
+        const postsData = await loadData();
+        let currentPage = 1;
+        let rows = 50;
 
-        totalData.forEach((item, id) => {
-            const paginationItem = document.createElement("li");
-            paginationItem.classList.add("table__pagination-item")
-            paginationItem.innerHTML = `${id + 1}`;
-            tableWrapper.appendChild(paginationItem)
-        })
+        // функция для отрисовки данных в таблице
+        const displayTable = (arrData, rowPerPage, page) => {
+            // Создадим переменные для работы slice
+            const start = rowPerPage * page;
+            const end = start + rowPerPage;
+            // Выводим 50 элементов
+            const paginatedData = arrData.slice(start, end)
+            console.log(paginatedData)
 
-
+            paginatedData.forEach((item, id) => {
+                const userCount = document.createElement("li");
+                userCount.classList.add("table__count-item");
+                userCount.innerHTML = `${id + 1}`
+                tableCount.appendChild(userCount)
+            })
+            for (const dataArrElement of paginatedData) {
+        // Выводим имена
+        const userName = document.createElement("li");
+        userName.classList.add("table__content-item");
+        userName.innerHTML = `${dataArrElement.fname}`;
+        tableContent.appendChild(userName);
+        // Выводим фамилии;
+        const userSurname = document.createElement("li");
+        userSurname.classList.add("table__surname-item");
+        userSurname.innerHTML = `${dataArrElement.lname}`
+        tableSurname.appendChild(userSurname);
+        // Выводим телефон;
+        const userPhone = document.createElement("li");
+        userPhone.classList.add("table__phone-item");
+        userPhone.innerHTML = `${dataArrElement.tel}`;
+        tablePhone.appendChild(userPhone)
+        // Выводим адресс
+        const userAddress = document.createElement("li");
+        userAddress.classList.add("table__address-item");
+        userAddress.innerHTML = `${dataArrElement.address}`;
+        tableAddress.appendChild(userAddress)
+        // Выводим город
+        const userCountry = document.createElement("li");
+        userCountry.classList.add("table__country-item");
+        userCountry.innerHTML = `${dataArrElement.city}`;
+        tableCountry.appendChild(userCountry)
+        // Выводим государство
+        const userState = document.createElement("li");
+        userState.classList.add("table__state-item");
+        userState.innerHTML = `${dataArrElement.state}`;
+        tableState.appendChild(userState)
+        // Выводим индекс
+        const userIndex = document.createElement("li");
+        userIndex.classList.add("table__index-item");
+        userIndex.innerHTML = `${dataArrElement.zip}`;
+        tableIndex.appendChild(userIndex)
     }
-
-    // Функция отображения
-    const viewData = async () => {
-        const dataArr = await loadData();
-
-        dataArr.forEach((item, id) => {
-            const userCount = document.createElement("li");
-            userCount.classList.add("table__count-item");
-            userCount.innerHTML = `${id + 1}`
-            tableCount.appendChild(userCount)
-        })
-
-        for (const dataArrElement of dataArr) {
-            // Выводим имена
-            const userName = document.createElement("li");
-            userName.classList.add("table__content-item");
-            userName.innerHTML = `${dataArrElement.fname}`;
-            tableContent.appendChild(userName);
-            // Выводим фамилии;
-            const userSurname = document.createElement("li");
-            userSurname.classList.add("table__surname-item");
-            userSurname.innerHTML = `${dataArrElement.lname}`
-            tableSurname.appendChild(userSurname);
-            // Выводим телефон;
-            const userPhone = document.createElement("li");
-            userPhone.classList.add("table__phone-item");
-            userPhone.innerHTML = `${dataArrElement.tel}`;
-            tablePhone.appendChild(userPhone)
-            // Выводим адресс
-            const userAddress = document.createElement("li");
-            userAddress.classList.add("table__address-item");
-            userAddress.innerHTML = `${dataArrElement.address}`;
-            tableAddress.appendChild(userAddress)
-            // Выводим город
-            const userCountry = document.createElement("li");
-            userCountry.classList.add("table__country-item");
-            userCountry.innerHTML = `${dataArrElement.city}`;
-            tableCountry.appendChild(userCountry)
-            // Выводим государство
-            const userState = document.createElement("li");
-            userState.classList.add("table__state-item");
-            userState.innerHTML = `${dataArrElement.state}`;
-            tableState.appendChild(userState)
-            // Выводим индекс
-            const userIndex = document.createElement("li");
-            userIndex.classList.add("table__index-item");
-            userIndex.innerHTML = `${dataArrElement.zip}`;
-            tableIndex.appendChild(userIndex)
         }
+        // функция отрисовки  колличества кнопок пагинации
+        const displayPagination = () => {
+
+        }
+        // функция отрисовки кнопок пагинации
+        const displayPaginationBtn = () => {
+
+        }
+
+        displayTable(postsData,rows,currentPage)
     }
-
-
-    // Колличество отображаемых постов
-
-    //
-    //
-    displayPagination()
-    viewData()
+    render()
 })
+
+// const displayPagination = async () => {
+//     const paginationWrapper = document.querySelector(".table__pagination");
+//     const totalData = await loadData();
+//
+//     totalData.forEach((item, id) => {
+//         const paginationItem = document.createElement("li");
+//         paginationItem.classList.add("table__pagination-item")
+//         paginationItem.innerHTML = `${id + 1}`;
+//         tableWrapper.appendChild(paginationItem)
+//     })
+// }
+// // Функция отображения списка на странице
+// const viewData = async () => {
+//     const dataArr = await loadData();
+//
+//     dataArr.forEach((item, id) => {
+//         const userCount = document.createElement("li");
+//         userCount.classList.add("table__count-item");
+//         userCount.innerHTML = `${id + 1}`
+//         tableCount.appendChild(userCount)
+//     })
+//
+//
+// }
