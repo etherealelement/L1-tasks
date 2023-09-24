@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
     "use strict";
     // Получаем оболочку для элементов таблицы
-    const tableContent = document.querySelector(".table__name");
+    const tableName = document.querySelector(".table__name");
     const tableSurname = document.querySelector(".table__surname");
     const tablePhone = document.querySelector(".table__phone");
     const tableAddress = document.querySelector(".table__address");
@@ -33,7 +33,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
         // функция для отрисовки данных в таблице
         const displayTable = (arrData, rowPerPage, page) => {
+            [...document.querySelectorAll(".table__item")].forEach(item => {
+                item.innerHTML = "";
+            })
             // Создадим переменные для работы slice
+            page--;
             const start = rowPerPage * page;
             const end = start + rowPerPage;
             // Выводим 50 элементов
@@ -51,7 +55,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const userName = document.createElement("li");
         userName.classList.add("table__content-item");
         userName.innerHTML = `${dataArrElement.fname}`;
-        tableContent.appendChild(userName);
+                tableName.appendChild(userName);
         // Выводим фамилии;
         const userSurname = document.createElement("li");
         userSurname.classList.add("table__surname-item");
@@ -83,42 +87,34 @@ window.addEventListener("DOMContentLoaded", () => {
         userIndex.innerHTML = `${dataArrElement.zip}`;
         tableIndex.appendChild(userIndex)
     }
+
         }
         // функция отрисовки  колличества кнопок пагинации
-        const displayPagination = () => {
+        function displayPagination  (arrData,  rowPerPage)  {
+            const pagesCount = Math.ceil(arrData.length / rowPerPage);
 
+            for (let i = 0; i < pagesCount; i++) {
+                const liEl = displayPaginationBtn(i + 1);
+                tableWrapper.appendChild(liEl);
+            }
         }
         // функция отрисовки кнопок пагинации
-        const displayPaginationBtn = () => {
+        function displayPaginationBtn (page) {
+            const paginationItem = document.createElement("li");
+            paginationItem.classList.add("table__pagination-item")
+            paginationItem.innerHTML = `${page}`;
 
+            paginationItem.addEventListener("click", () => {
+                currentPage = page;
+                displayTable(postsData,rows,currentPage)
+            })
+
+            return paginationItem;
         }
 
-        displayTable(postsData,rows,currentPage)
+        displayTable(postsData,rows,currentPage);
+        displayPagination(postsData, rows)
     }
     render()
 })
 
-// const displayPagination = async () => {
-//     const paginationWrapper = document.querySelector(".table__pagination");
-//     const totalData = await loadData();
-//
-//     totalData.forEach((item, id) => {
-//         const paginationItem = document.createElement("li");
-//         paginationItem.classList.add("table__pagination-item")
-//         paginationItem.innerHTML = `${id + 1}`;
-//         tableWrapper.appendChild(paginationItem)
-//     })
-// }
-// // Функция отображения списка на странице
-// const viewData = async () => {
-//     const dataArr = await loadData();
-//
-//     dataArr.forEach((item, id) => {
-//         const userCount = document.createElement("li");
-//         userCount.classList.add("table__count-item");
-//         userCount.innerHTML = `${id + 1}`
-//         tableCount.appendChild(userCount)
-//     })
-//
-//
-// }

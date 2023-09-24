@@ -356,3 +356,10 @@ body {
 	background: purple;
 	color: #fff;
 }
+
+.table__content-wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
