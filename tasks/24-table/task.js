@@ -13,6 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const filterIcon = [...document.querySelectorAll(".table__content-wrap")];
     // Функция загрузки данных
 
+    //Колл-во постов
     let countPost = 500;
     const loadData = async () => {
         // для отлова ошибки воспользуемся try/catch
