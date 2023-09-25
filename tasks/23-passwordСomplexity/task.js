@@ -53,7 +53,7 @@ window.addEventListener("DOMContentLoaded", () => {
             // Проверяем на цифры
 
             if (!value.match(/[0-9]/)) {
-                errors.push("Добавьте спецсимволы цифры")
+                errors.push("Добавьте спецсимволы цифры и заглавные буквы")
             } else if (value.match(/[0-9]/)) {
                 rating++;
                 errors.filter(item => item !== "цифры ");
