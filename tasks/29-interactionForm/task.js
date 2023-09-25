@@ -2,7 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
     "use strict";
     const getFormSubmit = (formId) => {
         // Получаем форму по классу
-        const sendForm = document.getElementById(formId);
+        const sendForm = document.querySelector(formId);
 
         sendForm.addEventListener("submit", (e) => {
             // Отменяем стандартное действие отправки формы
