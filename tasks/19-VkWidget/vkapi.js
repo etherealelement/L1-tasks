@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // Загружаем данные
     const loadData = async (count, pubId) => {
         try {
-            const res = await fetch(`https://api.vk.com/method/wall.get?owner_id=-${pubId}&count=${count}&v=5.131&access_token=vk1.a.DzjmArsc7oMDU_G9gYqmcW99wrENAWITKSsjqFY2SntBJP-GHxPWwpBzWZe0dF2iKA8jtRwJZBLTZvTMZlZYpiyjASx2wsD2ZeCFH2ijx6KmrYZ5sFor0sT-sNCcQhOon2IRmrUQp3xVg1FOhKhtBj1Fz_o5P98CeG_LpokXwjTP6mjqIPMm2mechJkQwuJZY-UGHIKOP0RqTqwIsMtVXg&expires_in=86400&user_id=213386040`);
+            const res = await fetch(`https://api.vk.com/method/wall.get?owner_id=-${pubId}&count=${count}&v=5.131&access_token=vk1.a.r3YxBiUptqoqsxXfsa7LdGrAk4rJUomSjVLsFPulJBlmmQyQ_96s985wULyUTLbFvd7tVo60qzRmJC2xywn4bqHtnjxLjqkXY_ciVioBMnakA1afs6pw8PAvtWb_u3rX3rrP11gIkSJ_1fyGaqBVVmRxJjYpYGquU0vgIa5ZpQ5EhKcbTSz2cm4wMwKc124s_gqOscZjaxG5eawOHPMRXw&expires_in=86400&user_id=213386040`);
             const data = await res.json();
             return data;
         } catch (e) {
